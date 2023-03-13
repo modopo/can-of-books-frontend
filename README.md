@@ -2,27 +2,34 @@
 
 **Author**: Jonathan Tsai, Daniel Yoon
 
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.3.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+People want to keep track of their books and which ones are checked-out of the system, so we create a small book inventory management system.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+* Ensure that you have node.js and npm installed.
+* Use npm install to install dependencies.
+* Have a .env file with variable REACT_APP_SERVER that has a link to a Can-of-Books server (or your local server).
+* Run npm start to start React app.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This application uses React for the UI and makes API calls through axios.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+03-13-2023 3:00pm App is able to get book data from backend through GET request.
+03-13-2023 3:30pm App now displays book data in a carousel.
+03-13-2023 4:00pm App now has nav links to Home and About pages.
 
 ## Estimates
-<!-- See below -->
+
+Feature: Rendering Front End\
+Estimated time to complete: 2 hour\
+Start Time: 2:30 PM\
+End Time: 4:30 PM\
+Actual: 4 PM
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 **Logistical**
 * What hours will you be available to communicate?

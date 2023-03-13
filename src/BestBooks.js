@@ -39,14 +39,9 @@ class BestBooks extends React.Component {
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
         {this.state.books.length ? (
-          <Carousel>
-            {this.state.books.map((book) => {
-              return <Book 
-                key={book._id}
-                bookData={book}  
-              />
-            })}
-          </Carousel>
+          <Book 
+            bookData={this.state.books}
+          />
         ) : (
           <h3>No Books Found :(</h3>
         )}

@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <Navbar className="justify-content-between" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand>My Favorite Books</Navbar.Brand>
-        <div style={{display: "flex"}}>
+        <div className='navlinks'>
           <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
           <NavItem><Link to="/about" className="nav-link">About</Link></NavItem>
         </div>

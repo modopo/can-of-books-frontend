@@ -36,7 +36,7 @@ class BestBooks extends React.Component {
     try {
       let url = `${process.env.REACT_APP_SERVER}/books`;
       let createdBook = await axios.post(url, input);
-      console.log(createdBook);
+
       this.setState({
         books: [...this.state.books, createdBook.data]
       });

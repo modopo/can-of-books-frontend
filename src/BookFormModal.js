@@ -21,10 +21,14 @@ class BookFormModal extends React.Component {
 
       this.props.addBook(book);
     } else {
+
+      let status = (this.props.updatedBook.status !== e.target.status.checked) ? e.target.status.checked : this.props.updatedBook.status;
+
+
       book = {
         title: e.target.title.value || this.props.updatedBook.title,
         description: e.target.description.value || this.props.updatedBook.description,
-        status: e.target.status.checked || this.props.updatedBook.status,
+        status: status,
         image_url: e.target.imageUrl.value || this.props.updatedBook.image_url
       };
 
@@ -74,7 +78,7 @@ class BookFormModal extends React.Component {
             {this.props.showUpdate
               &&
               <Form.Group controlId="status">
-                <Form.Check type="checkbox" label="Checked Out">
+                <Form.Check type="checkbox" label="Checked Out" defaultChecked={this.props.updatedBook.status}>
                 </Form.Check>
               </Form.Group>
             }

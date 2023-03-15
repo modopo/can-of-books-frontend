@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 
 class Book extends React.Component {
+  
   render() {
     const books = this.props.bookData.map((book) => {
       return (
@@ -17,6 +18,9 @@ class Book extends React.Component {
             <p style={{ fontSize: "10px" }}>Checked out: {book.status ? 'Yes' : 'No'}</p>
             <Button onClick={() => this.props.deleteBook(book._id)}>
               Delete Book
+            </Button>
+            <Button onClick={() => {this.props.toggleModal(); this.props.setUpdate(book);}}>
+              Update Book
             </Button>
           </Carousel.Caption>
         </Carousel.Item>

@@ -11,7 +11,9 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       showModal: false,
-      error: {}
+      error: {},
+      showUpdate: false,
+      updatedBook: {}
     }
   }
 
@@ -19,6 +21,20 @@ class BestBooks extends React.Component {
     this.setState({
       showModal: !this.state.showModal
     });
+  }
+
+  setUpdate = (book) => {
+    this.setState({
+      showUpdate: true,
+      updatedBook: book,
+    })
+  }
+
+  resetUpdate = () => {
+    this.setState({
+      showUpdate: false,
+      updatedBook: {}
+    })
   }
 
   getBooks = async () => {
@@ -38,7 +54,8 @@ class BestBooks extends React.Component {
       let createdBook = await axios.post(url, input);
 
       this.setState({
-        books: [...this.state.books, createdBook.data]
+        books: [...this.state.books, createdBook.data],
+        showUpdate: false
       });
     } catch (error) {
       console.log(error.response.data);
@@ -64,7 +81,30 @@ class BestBooks extends React.Component {
     }
   }
 
+  updateBook = async (bookToUpdate) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/books/${bookToUpdate._id}`;
+      let updatedFromDB = await axios.put(url, bookToUpdate);
+      
+      let updatedBooks = this.state.books.map(book => {
+        if (book._id === updatedFromDB.data._id) {
+          this.setState({
+            updatedBook: updatedFromDB.data,
+          })
+          return updatedFromDB.data;
+        } else {
+          return book;
+        }
+      });
 
+      this.setState({
+        books: updatedBooks
+      });
+
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  }
 
   componentDidMount() {
     this.getBooks();
@@ -79,17 +119,24 @@ class BestBooks extends React.Component {
           <Book
             bookData={this.state.books}
             deleteBook={this.deleteBook}
+            toggleModal={this.toggleModal}
+            setUpdate={this.setUpdate}
           />
         ) : (
           <h3>No Books Found :(</h3>
         )}
-        <Button onClick={this.toggleModal}>Add Book</Button>
+        <Button onClick={() => { this.toggleModal(); this.resetUpdate(); }}>Add Book</Button>
         {this.state.showModal
           &&
           <BookFormModal
             showModal={this.state.showModal}
             toggleModal={this.toggleModal}
             addBook={this.addBook}
+            updatedBook={this.state.updatedBook}
+            updateBook={this.updateBook}
+            showUpdate={this.state.showUpdate}
+            updatedBookID={this.state.updatedBookID}
+            listOf
           />
         }
         {

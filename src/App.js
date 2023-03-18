@@ -10,9 +10,13 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+//for class-based components
+import { withAuth0 } from '@auth0/auth0-react';
+import Welcome from './Welcome';
 
 class App extends React.Component {
   render() {
+    console.log(this.props.auth0.isAuthenticated);
     return (
       <>
         <Router>
@@ -20,7 +24,7 @@ class App extends React.Component {
           <Routes>
             <Route 
               exact path="/"
-              element={<BestBooks />}
+              element={this.props.auth0.isAuthenticated ? <BestBooks /> : <Welcome />}
             >
             </Route>
             <Route
@@ -38,4 +42,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth0(App);

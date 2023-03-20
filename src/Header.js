@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
-import Profile from './Profile';
 
 class Header extends React.Component {
   render() {

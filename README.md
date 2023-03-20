@@ -2,7 +2,7 @@
 
 **Author**: Jonathan Tsai, Daniel Yoon
 
-**Version**: 1.5.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.6.0
 
 ## Overview
 People want to keep track of their books and which ones are checked-out of the system, so we create a small book inventory management system.
@@ -23,6 +23,7 @@ This application uses React for the UI and makes API calls through axios.
 03-14-2023 2:30pm App now has button to show a modal to fill out a form for a new book
 03-14-2023 3:00pm App now has a delete button to remove books from the carousel
 03-15-2023 4:30pm App now has an update button to update details of a book
+03-13-2023 5:00pm App now has single sign-on login through Auth0.
 
 ## Estimates
 
@@ -48,6 +49,12 @@ Feature: Update button and modal\
 Estimate of time needed to complete: 1 hour\
 Start time: 2:00pm\
 Finish time: 4:30pm\
+Actual time needed to complete: 2 hours and 30 min
+
+Feature: Integrate Auth0 single sign-on login\
+Estimate of time needed to complete: 1 hour\
+Start time: 2:30pm\
+Finish time: 5:00pm\
 Actual time needed to complete: 2 hours and 30 min
 
 ## Credit and Collaborations

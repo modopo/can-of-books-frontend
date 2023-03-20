@@ -4,6 +4,8 @@ import Book from './Book';
 import Button from 'react-bootstrap/Button';
 import BookFormModal from './BookFormModal';
 import Alert from 'react-bootstrap/Alert';
+import { withAuth0 } from '@auth0/auth0-react';
+import Profile from './Profile';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -146,9 +148,13 @@ class BestBooks extends React.Component {
             Error: {this.state.error.response.data}
           </Alert>
         }
+        {this.props.auth0.isAuthenticated
+          &&
+          <Profile />
+        }
       </>
     )
   }
 }
 
-export default BestBooks;
+export default withAuth0(BestBooks);
